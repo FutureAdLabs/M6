@@ -1,0 +1,109 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.8.8/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish',
+1 verbose cli   '.' ]
+2 info using npm@1.1.59
+3 info using node@v0.8.8
+4 verbose publish [ '.' ]
+5 verbose read json /Users/andrewwilliams/Development/personal/node/blogProjects/routing/package.json
+6 verbose cache add [ '.', null ]
+7 silly cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { pathname: '.', path: '.', href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/andrewwilliams/.npm/3a52ce78-.lock
+11 verbose read json package.json
+12 verbose tar pack [ '/var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/tmp.tgz',
+12 verbose tar pack   '.' ]
+13 verbose tarball /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/tmp.tgz
+14 verbose folder .
+15 info prepublish M6@0.0.1
+16 silly lockFile ae0fe5f3-6327-0-37891879701055586-tmp-tgz /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/tmp.tgz
+17 verbose lock /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/tmp.tgz /Users/andrewwilliams/.npm/ae0fe5f3-6327-0-37891879701055586-tmp-tgz.lock
+18 silly lockFile ae0fe5f3-6327-0-37891879701055586-tmp-tgz /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/tmp.tgz
+19 verbose tar unpack /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/tmp.tgz
+20 silly lockFile db20900b-6327-0-37891879701055586-package /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package
+21 verbose lock /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package /Users/andrewwilliams/.npm/db20900b-6327-0-37891879701055586-package.lock
+22 silly gunzTarPerm modes [ '777', '666' ]
+23 silly gunzTarPerm extractEntry package.json
+24 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+25 silly gunzTarPerm extractEntry example.js
+26 silly gunzTarPerm modified mode [ 'example.js', 420, 438 ]
+27 silly gunzTarPerm extractEntry m6.js
+28 silly gunzTarPerm modified mode [ 'm6.js', 420, 438 ]
+29 silly gunzTarPerm extractEntry LICENSE.md
+30 silly gunzTarPerm modified mode [ 'LICENSE.md', 420, 438 ]
+31 silly gunzTarPerm extractEntry readme.md
+32 silly gunzTarPerm modified mode [ 'readme.md', 420, 438 ]
+33 verbose read json /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package/package.json
+34 silly lockFile db20900b-6327-0-37891879701055586-package /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package
+35 verbose from cache /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package/package.json
+36 verbose tar pack [ '/Users/andrewwilliams/.npm/M6/0.0.1/package.tgz',
+36 verbose tar pack   '/var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package' ]
+37 verbose tarball /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz
+38 verbose folder /var/folders/9_/kp1h4zd52016zk6fqc9mcm7r0000gn/T/npm-14972/1354034746327-0.37891879701055586/package
+39 silly lockFile d7b7dbd2-illiams-npm-M6-0-0-1-package-tgz /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz
+40 verbose lock /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz /Users/andrewwilliams/.npm/d7b7dbd2-illiams-npm-M6-0-0-1-package-tgz.lock
+41 silly lockFile d7b7dbd2-illiams-npm-M6-0-0-1-package-tgz /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz
+42 silly lockFile b5045329-rewwilliams-npm-M6-0-0-1-package /Users/andrewwilliams/.npm/M6/0.0.1/package
+43 verbose lock /Users/andrewwilliams/.npm/M6/0.0.1/package /Users/andrewwilliams/.npm/b5045329-rewwilliams-npm-M6-0-0-1-package.lock
+44 silly lockFile b5045329-rewwilliams-npm-M6-0-0-1-package /Users/andrewwilliams/.npm/M6/0.0.1/package
+45 verbose tar unpack /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz
+46 silly lockFile b5045329-rewwilliams-npm-M6-0-0-1-package /Users/andrewwilliams/.npm/M6/0.0.1/package
+47 verbose lock /Users/andrewwilliams/.npm/M6/0.0.1/package /Users/andrewwilliams/.npm/b5045329-rewwilliams-npm-M6-0-0-1-package.lock
+48 silly gunzTarPerm modes [ '777', '666' ]
+49 silly gunzTarPerm extractEntry package.json
+50 silly gunzTarPerm extractEntry example.js
+51 silly gunzTarPerm extractEntry m6.js
+52 silly gunzTarPerm extractEntry LICENSE.md
+53 silly gunzTarPerm extractEntry readme.md
+54 verbose read json /Users/andrewwilliams/.npm/M6/0.0.1/package/package.json
+55 silly lockFile b5045329-rewwilliams-npm-M6-0-0-1-package /Users/andrewwilliams/.npm/M6/0.0.1/package
+56 silly shasum updated bytes 935
+57 info shasum d07237b440e1eace0af00ef38e91963a35a96808
+57 info shasum /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz
+58 verbose from cache /Users/andrewwilliams/.npm/M6/0.0.1/package/package.json
+59 verbose chmod /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz 666
+60 verbose chown /Users/andrewwilliams/.npm/M6/0.0.1/package.tgz [ 501, 20 ]
+61 silly lockFile 3a52ce78- .
+62 silly publish { name: 'M6',
+62 silly publish   description: 'A simple routing module for node.js',
+62 silly publish   url: 'https://github.com/FutureAdLabs/M6',
+62 silly publish   keywords: [ 'routing' ],
+62 silly publish   author: { name: 'Andrew Williams', email: 'andy@futureadlabs.com' },
+62 silly publish   lib: '.',
+62 silly publish   main: './m6.js',
+62 silly publish   repository: { type: 'git', url: 'https://github.com/FutureAdLabs/M6.git' },
+62 silly publish   version: '0.0.1',
+62 silly publish   readme: '# M6\n\nA simple routing module for node.js',
+62 silly publish   _id: 'M6@0.0.1',
+62 silly publish   _from: 'M6',
+62 silly publish   dist: { shasum: 'd07237b440e1eace0af00ef38e91963a35a96808' } }
+63 verbose url raw M6
+64 verbose url resolving [ 'https://registry.npmjs.org/', './M6' ]
+65 verbose url resolved https://registry.npmjs.org/M6
+66 info retry registry request attempt 1 at 16:45:47
+67 http PUT https://registry.npmjs.org/M6
+68 http 403 https://registry.npmjs.org/M6
+69 error publish Failed PUT response 403
+70 error Error: forbidden New packages must have all-lowercase names: M6
+70 error     at RegClient.<anonymous> (/usr/local/Cellar/node/0.8.8/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:253:14)
+70 error     at Request.init.self.callback (/usr/local/Cellar/node/0.8.8/lib/node_modules/npm/node_modules/request/main.js:120:22)
+70 error     at Request.EventEmitter.emit (events.js:91:17)
+70 error     at Request.<anonymous> (/usr/local/Cellar/node/0.8.8/lib/node_modules/npm/node_modules/request/main.js:648:16)
+70 error     at Request.EventEmitter.emit (events.js:115:20)
+70 error     at IncomingMessage.Request.start.self.req.self.httpModule.request.buffer (/usr/local/Cellar/node/0.8.8/lib/node_modules/npm/node_modules/request/main.js:610:14)
+70 error     at IncomingMessage.EventEmitter.emit (events.js:115:20)
+70 error     at IncomingMessage._emitEnd (http.js:366:10)
+70 error     at HTTPParser.parserOnMessageComplete [as onMessageComplete] (http.js:149:23)
+70 error     at CleartextStream.socketOnData [as ondata] (http.js:1366:20)
+71 error If you need help, you may report this log at:
+71 error     <http://github.com/isaacs/npm/issues>
+71 error or email it to:
+71 error     <npm-@googlegroups.com>
+72 error System Darwin 12.2.0
+73 error command "/usr/local/Cellar/node/0.8.8/bin/node" "/usr/local/bin/npm" "publish" "."
+74 error cwd /Users/andrewwilliams/Development/personal/node/blogProjects/routing
+75 error node -v v0.8.8
+76 error npm -v 1.1.59
+77 verbose exit [ 1, true ]

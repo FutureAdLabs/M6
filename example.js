@@ -1,16 +1,16 @@
 var http = require('http');
-var routing = require('./routing/routing');
+var m6 = require('./m6');
 
 function simple(req, res) {
 	res.writeHead(200, {"content-type" : "text/plain"});
     res.end('Simple');
 }
 
-routing.AddRoute('/simple', simple);
+m6.AddRoute('/simple', simple);
 
 var server = http.createServer( function (req, res) {
 
-	if(routing.Process(req, res) === false) {
+	if(m6.Process(req, res) === false) {
     	res.writeHead(404, {"content-type" : "text/plain"});
     	res.end('Not found');
 	}

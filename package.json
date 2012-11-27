@@ -9,8 +9,8 @@
     "name": "Andrew Williams",
     "email": "andy@futureadlabs.com"
   },
-  "lib": "./routing",
-  "main": "./routing/routing.js",
+  "lib": ".",
+  "main": "./m6.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/FutureAdLabs/M6.git"

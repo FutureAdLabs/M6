@@ -1,0 +1,22 @@
+{
+  "name": "M6",
+  "description": "A simple routing module for node.js",
+  "url": "https://github.com/FutureAdLabs/M6",
+  "keywords": [
+    "routing"
+  ],
+  "author": {
+    "name": "Andrew Williams",
+    "email": "andy@futureadlabs.com"
+  },
+  "lib": "./routing",
+  "main": "./routing/routing.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FutureAdLabs/M6.git"
+  },
+  "version": "0.0.1",
+  "readme": "# M6\n\nA simple routing module for node.js",
+  "_id": "M6@0.0.1",
+  "_from": "M6"
+}

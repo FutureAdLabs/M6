@@ -23,11 +23,26 @@ var M6 = function() {
 	};
 
 	var _getRoute = function(req) {
+		var urlArray = req.url.split('/');
 		for(var i = 0, length = _routes.length; i < length; i++) {
-			if(req.url === _routes[i].Url) {
+			if(_isMatch(urlArray, req.method, _routes[i])) {
 				return _routes[i];
 			}
 		}
+	};
+
+	var _isMatch = function(urlArray, method, route) {
+		var routeUrlArray = route.Url.split('/');
+
+		var match = true;
+		for(var i = 0, length = routeUrlArray.length; i < length; i++) {
+			var item = urlArray[i];
+			
+			if(routeUrlArray[i] !== item && routeUrlArray[i][0] !== '@') { 
+				match = false;
+			}
+		}
+		return match;
 	};
 
 	var _getParameters = function(req, route) {

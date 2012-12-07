@@ -1,12 +1,20 @@
 var M6 = function() {
 	var _routes = [];
-	var _addRoute = function(url, action) {
-		var route = {
+	var _addGetRoute = function(url, action) {
+		_addRoute(url, 'GET', action);
+	};
+
+	var _addPostRoute = function(url, action) {
+		_addRoute(url, 'POST', action);
+	};
+
+	var _addRoute = function(url, method, action) {
+		var item = {
 			Url: url,
+			Method: method,
 			Action: action
 		};
-
-		_routes.push(route);
+		_routes.push(item);
 	};
   
 	var _process = function(req, res) {
@@ -32,6 +40,8 @@ var M6 = function() {
 	};
 
 	var _isMatch = function(urlArray, method, route) {
+		if(route.Method !== method) { return false; }
+
 		var routeUrlArray = route.Url.split('/');
 
 		var match = true;
@@ -62,6 +72,8 @@ var M6 = function() {
 
 	return {
 		AddRoute: _addRoute,
+		AddGetRoute: _addGetRoute,
+		AddPostRoute: _addPostRoute,
 		Process: _process
 	};
 }();

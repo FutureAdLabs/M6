@@ -47,10 +47,11 @@ var M6 = function() {
 		var match = true;
 		for(var i = 0, length = routeUrlArray.length; i < length; i++) {
 			var item = urlArray[i];
-			
-			if(routeUrlArray[i] !== item && routeUrlArray[i][0] !== '@') { 
-				match = false;
+			if(item.indexOf('?') >= 0) {
+				item = item.substr(0, item.indexOf('?'));
 			}
+
+			if(routeUrlArray[i] !== item && routeUrlArray[i][0] !== '@') { match = false; }
 		}
 		return match;
 	};
@@ -67,7 +68,27 @@ var M6 = function() {
 			}
 		}
 
+		_getQueryStringParameters(req, parameters);
+
 		return parameters;
+	};
+
+	var _getQueryStringParameters = function(req, parameters) {
+		var urlArray = req.url.split('/');
+		var last = urlArray[urlArray.length - 1];
+		if(last.indexOf('?') < 0) {
+			return [];
+		}
+
+		var parameterString = last.substr(last.indexOf('?') + 1);
+		var parameterStrings = parameterString.split('&');
+		for(var i = 0, length = parameterStrings.length; i < length; i++) {
+			var items = parameterStrings[i].split('=');
+
+			if(items[0]) {
+				parameters[items[0]] = items[1];
+			}
+		}
 	};
 
 	return {

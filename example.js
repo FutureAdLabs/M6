@@ -21,9 +21,22 @@ function simplePost(req, res) {
     res.end('Simple Post\n');
 }
 
+function simpleQs(req, res) {
+	res.writeHead(200, {"content-type" : "text/plain"});
+	var str = 'Simple Qs Parameters:\n';
+	var keys = Object.keys(req.params);
+	if(keys) {
+		for(var i = 0, length = keys.length; i < length; i++) {
+			str = str + keys[i] + ' = ' + req.params[keys[i]] + '\n';
+		}
+	}
+    res.end(str);
+}
+
 m6.AddGetRoute('/simple', simple);
 m6.AddGetRoute('/simpleparam/@value', simpleParameter);
 m6.AddPostRoute('/simplepost', simplePost);
+m6.AddGetRoute('/simpleqs', simpleQs);
 
 var server = http.createServer( function (req, res) {
 	if(m6.Process(req, res) === false) {

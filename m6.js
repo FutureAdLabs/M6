@@ -47,7 +47,7 @@ var M6 = function() {
 		var match = true;
 		for(var i = 0, length = routeUrlArray.length; i < length; i++) {
 			var item = urlArray[i];
-			if(item.indexOf('?') >= 0) {
+			if(item && item.indexOf('?') >= 0) {
 				item = item.substr(0, item.indexOf('?'));
 			}
 

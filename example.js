@@ -22,9 +22,6 @@ function simplePost(req, res) {
 }
 
 function simpleQs(req, res) {
-	console.log('-------------------------------------');
-	console.log(Object.keys(req.params));
-	console.log('-------------------------------------');
 	res.writeHead(200, {"content-type" : "text/plain"});
 	var str = 'Simple Qs Parameters:\n';
 	var keys = Object.keys(req.params);
@@ -39,7 +36,7 @@ function simpleQs(req, res) {
 m6.AddGetRoute('/simple', simple);
 m6.AddGetRoute('/simpleparam/@value', simpleParameter);
 m6.AddPostRoute('/simplepost', simplePost);
-m6.AddPostRoute('/simpleqs', simpleQs);
+m6.AddGetRoute('/simpleqs', simpleQs);
 
 var server = http.createServer( function (req, res) {
 	if(m6.Process(req, res) === false) {

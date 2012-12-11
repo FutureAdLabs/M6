@@ -15,8 +15,8 @@
     "type": "git",
     "url": "https://github.com/FutureAdLabs/M6.git"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "readme": "# M6\n\nA simple routing module for node.js",
-  "_id": "M6@0.0.4",
+  "_id": "M6@0.0.5",
   "_from": "M6"
 }

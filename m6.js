@@ -74,13 +74,11 @@ var M6 = function() {
 	};
 
 	var _getQueryStringParameters = function(req, parameters) {
-		var urlArray = req.url.split('/');
-		var last = urlArray[urlArray.length - 1];
-		if(last.indexOf('?') < 0) {
+		if(req.url.indexOf('?') < 0) {
 			return [];
 		}
 
-		var parameterString = last.substr(last.indexOf('?') + 1);
+		var parameterString = req.url.substr(req.url.indexOf('?') + 1);
 		var parameterStrings = parameterString.split('&');
 		for(var i = 0, length = parameterStrings.length; i < length; i++) {
 			var items = parameterStrings[i].split('=');

@@ -62,8 +62,13 @@ var M6 = function() {
 		var routeUrlArray = route.Url.split('/');
 		for(var i = 0, length = routeUrlArray.length; i < length; i++) {
 			if(routeUrlArray[i][0] === '@') {
+				var item = urlArray[i];
+				if(item.indexOf('?') >= 0) {
+					item = item.substring(0, item.indexOf('?'));
+				}
+
 				var key = routeUrlArray[i].substring(1);
-				var value = urlArray[i];
+				var value = item;
 				parameters[key] = value;
 			}
 		}

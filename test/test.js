@@ -73,6 +73,8 @@ describe("Parameters", function() {
 	var qsParameterValue3 = '';
 	var urlParameterValue2 = '';
 	var qsParameterValue4 = '';
+	var urlParameterValue3 = '';
+	var urlParameterValue4 = '';
 
 	before(function(done) {	
 		m6.AddGetRoute('/urlparameter/@value', function(req, res) {
@@ -91,6 +93,11 @@ describe("Parameters", function() {
 		m6.AddGetRoute('/parameter/@valueone', function(req, res) {
 			urlParameterValue2 = req.params.valueone;
 			qsParameterValue4 = req.params.valuetwo;
+		});
+
+		m6.AddGetRoute('/multipleurlparams/@valueone/@valuetwo', function(req, res) {
+			urlParameterValue3 = req.params.valueone;
+			urlParameterValue4 = req.params.valuetwo;
 			done();
 		});
 
@@ -121,10 +128,22 @@ describe("Parameters", function() {
 		};
 
 		m6.Process(req4);
+
+		var req5 = {
+			url: '/multipleurlparams/1000/2000',
+			method: 'GET'
+		};
+
+		m6.Process(req5);
 	});
 
 	it('should pass through url parameters to action', function() {
 		urlParameterValue.should.equal('5');
+	});
+
+	it('should pass through multiple url params to action', function() {
+		urlParameterValue3.should.equal('1000');
+		urlParameterValue4.should.equal('2000');
 	});
 
 	it('should pass through query string parameters to action', function() {

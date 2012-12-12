@@ -89,10 +89,8 @@ describe("Parameters", function() {
 		});
 
 		m6.AddGetRoute('/parameter/@valueone', function(req, res) {
-			console.log('OH HAI!');
 			urlParameterValue2 = req.params.valueone;
 			qsParameterValue4 = req.params.valuetwo;
-			console.log(urlParameterValue2);
 			done();
 		});
 

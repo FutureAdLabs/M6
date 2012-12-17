@@ -17,6 +17,7 @@ var M6 = function() {
 		};
 		if(url.indexOf('@') >= 0) {
 			if(_isValidRoute(url)) {
+				_addParameterData(item);
 				_paramRoutes.push(item);
 			}
 		} else {
@@ -40,6 +41,13 @@ var M6 = function() {
 
 		return true;
 	};
+
+	var _addParameterData = function(route) {
+		var parameterlessLength = route.Url.indexOf('@');
+		var parameterlessRoute = route.Url.substr(0, parameterlessLength);
+		route.ParameterlessLength = parameterlessLength;
+		route.ParameterlessRoute = parameterlessRoute;
+	};
   
 	var _process = function(req, res) {
 		var route = _getRoute(req);
@@ -61,7 +69,7 @@ var M6 = function() {
 			return route;
 		}
 
-		return _getRouteSplit(req);
+		return _getUrlParameterRoute(req);
 	};
 
 	var _getRouteStringMatch = function(req) {
@@ -78,30 +86,13 @@ var M6 = function() {
 		}
 	};
 
-	var _getRouteSplit = function(req) {
-		var urlArray = req.url.split('/');
+	var _getUrlParameterRoute = function(req) {
 		for(var i = 0, length = _paramRoutes.length; i < length; i++) {
-			if(_isMatch(urlArray, req.method, _paramRoutes[i])) {
+			var paramlessReq = req.url.substr(0, _paramRoutes[i].ParameterlessLength);
+			if(_paramRoutes[i].ParameterlessRoute === paramlessReq) {
 				return _paramRoutes[i];
 			}
 		}
-	};
-
-	var _isMatch = function(urlArray, method, route) {
-		if(route.Method !== method) { return false; }
-
-		var routeUrlArray = route.Url.split('/');
-
-		var match = true;
-		for(var i = 0, length = routeUrlArray.length; i < length; i++) {
-			var item = urlArray[i];
-			if(item && item.indexOf('?') >= 0) {
-				item = item.substr(0, item.indexOf('?'));
-			}
-
-			if(routeUrlArray[i] !== item && routeUrlArray[i][0] !== '@') { match = false; }
-		}
-		return match;
 	};
 
 	var _getParameters = function(req, route) {

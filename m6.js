@@ -16,10 +16,29 @@ var M6 = function() {
 			Action: action
 		};
 		if(url.indexOf('@') >= 0) {
-			_paramRoutes.push(item);
+			if(_isValidRoute(url)) {
+				_paramRoutes.push(item);
+			}
 		} else {
 			_simpleRoutes.push(item);
 		}
+	};
+
+	var _isValidRoute = function(url) {
+		var urlArray = url.split('/');
+		var indexOfFirstParameterItem = -1;
+
+		for(var i = 0, length = urlArray.length; i < length; i++) {
+			if(urlArray[i][0] === '@' && indexOfFirstParameterItem < 0) {
+				indexOfFirstParameterItem = i;
+			}
+
+			if(urlArray[i][0] !== '@' && indexOfFirstParameterItem >= 0) {
+				return false;
+			}
+		}
+
+		return true;
 	};
   
 	var _process = function(req, res) {

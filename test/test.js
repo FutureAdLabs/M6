@@ -75,8 +75,7 @@ describe("Parameters", function() {
 	var qsParameterValue4 = '';
 	var urlParameterValue3 = '';
 	var urlParameterValue4 = '';
-	var urlParameterValue5 = '';
-	var urlParameterValue6 = '';
+	var crazyRouteFailed = false;
 
 	before(function(done) {	
 		m6.AddGetRoute('/urlparameter/@value', function(req, res) {
@@ -103,9 +102,7 @@ describe("Parameters", function() {
 		});
 
 		m6.AddGetRoute('/crazy/@valueone/route/@valuetwo/time', function(req, res) {
-			urlParameterValue5 = req.params.valueone;
-			urlParameterValue6 = req.params.valuetwo;
-			done();
+			
 		});
 
 		var req = {
@@ -148,7 +145,10 @@ describe("Parameters", function() {
 			method: 'GET'
 		};
 
-		m6.Process(req6);
+		if(m6.Process(req6) === false) {
+			crazyRouteFailed = true;
+			done();
+		}
 	});
 
 	it('should pass through url parameters to action', function() {
@@ -174,8 +174,7 @@ describe("Parameters", function() {
 		qsParameterValue4.should.equal('800');
 	});
 
-	it('should hand url params anywhere in url', function() {
-		urlParameterValue5.should.equal('5000');
-		urlParameterValue6.should.equal('7000');
+	it('should not allow url parameters in the middle of url', function() {
+		crazyRouteFailed.should.be.true;
 	});
 });

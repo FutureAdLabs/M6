@@ -31,6 +31,30 @@ var M6 = function() {
 	};
 
 	var _getRoute = function(req) {
+		var route = _getRouteStringMatch(req);
+
+		if(route) {
+			return route;
+		}
+
+		return _getRouteSplit(req);
+	};
+
+	var _getRouteStringMatch = function(req) {
+		var url = req.url;
+
+		if(url.indexOf('?') >= 0) {
+			url = url.substr(0, url.indexOf('?'));
+		}
+
+		for(var i = 0, length = _routes.length; i < length; i++) {
+			if(_routes[i].Url === url) {
+				return _routes[i];
+			}
+		}
+	};
+
+	var _getRouteSplit = function(req) {
 		var urlArray = req.url.split('/');
 		for(var i = 0, length = _routes.length; i < length; i++) {
 			if(_isMatch(urlArray, req.method, _routes[i])) {

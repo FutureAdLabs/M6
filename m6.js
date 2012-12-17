@@ -1,5 +1,6 @@
 var M6 = function() {
-	var _routes = [];
+	var _simpleRoutes = [];
+	var _paramRoutes = [];
 	var _addGetRoute = function(url, action) {
 		_addRoute(url, 'GET', action);
 	};
@@ -14,7 +15,11 @@ var M6 = function() {
 			Method: method,
 			Action: action
 		};
-		_routes.push(item);
+		if(url.indexOf('@') >= 0) {
+			_paramRoutes.push(item);
+		} else {
+			_simpleRoutes.push(item);
+		}
 	};
   
 	var _process = function(req, res) {
@@ -47,18 +52,18 @@ var M6 = function() {
 			url = url.substr(0, url.indexOf('?'));
 		}
 
-		for(var i = 0, length = _routes.length; i < length; i++) {
-			if(_routes[i].Url === url) {
-				return _routes[i];
+		for(var i = 0, length = _simpleRoutes.length; i < length; i++) {
+			if(_simpleRoutes[i].Url === url) {
+				return _simpleRoutes[i];
 			}
 		}
 	};
 
 	var _getRouteSplit = function(req) {
 		var urlArray = req.url.split('/');
-		for(var i = 0, length = _routes.length; i < length; i++) {
-			if(_isMatch(urlArray, req.method, _routes[i])) {
-				return _routes[i];
+		for(var i = 0, length = _paramRoutes.length; i < length; i++) {
+			if(_isMatch(urlArray, req.method, _paramRoutes[i])) {
+				return _paramRoutes[i];
 			}
 		}
 	};

@@ -47,6 +47,11 @@ var M6 = function() {
 		var parameterlessRoute = route.Url.substr(0, parameterlessLength);
 		route.ParameterlessLength = parameterlessLength;
 		route.ParameterlessRoute = parameterlessRoute;
+
+		var paramString = route.Url.substr(parameterlessLength);
+		paramString = paramString.replace(/@/g,'');
+		var paramArray = paramString.split('/');
+		route.UrlParameters = paramArray;
 	};
   
 	var _process = function(req, res) {
@@ -96,22 +101,23 @@ var M6 = function() {
 	};
 
 	var _getParameters = function(req, route) {
-		var urlArray = req.url.split('/');
 		var parameters = {};
-		var routeUrlArray = route.Url.split('/');
-		for(var i = 0, length = routeUrlArray.length; i < length; i++) {
-			if(routeUrlArray[i][0] === '@') {
-				var item = urlArray[i];
-				if(item.indexOf('?') >= 0) {
-					item = item.substring(0, item.indexOf('?'));
-				}
+		if(route.ParameterlessLength > 0) {
+			var paramString = req.url.substr(route.ParameterlessLength);
+			if(paramString.indexOf('?') >= 0) {
+				paramString = paramString.substr(0, paramString.indexOf('?'));
+			}
+			
+			var paramArray = paramString.split('/');
 
-				var key = routeUrlArray[i].substring(1);
-				var value = item;
-				parameters[key] = value;
+			if(route.UrlParameters) {
+				for(var i = 0, length = route.UrlParameters.length; i < length; i++) {
+					var key = route.UrlParameters[i];
+					var value = paramArray[i];
+					parameters[key] = value;	
+				}
 			}
 		}
-
 		_getQueryStringParameters(req, parameters);
 
 		return parameters;

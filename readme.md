@@ -33,3 +33,15 @@ m6.AddGetRoute('/simpleParameter/@value', function (req, res) {
 });
 ```
 Querystring parameters will also be passed through on the req.params object.
+
+Finally, when a http request is received, delegate responsibility to m6 like so:
+
+```javascript
+var server = http.createServer( function (req, res) {
+	if(m6.Process(req, res) === false) {
+    	res.writeHead(404, {"content-type" : "text/plain"});
+    	res.end('Not found\n');
+	}
+  }
+).listen(3333);
+```
